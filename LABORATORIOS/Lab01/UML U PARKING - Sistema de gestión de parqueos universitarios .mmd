@@ -1,0 +1,62 @@
+classDiagram
+
+class Usuario {
+    +int idUsuario
+    +string Nombre
+    +string Correo
+    +string Contrasena
+    +string Rol
+    +bool Activo
+}
+
+class Vehiculo {
+    +int idVehiculo
+    +string Placa
+    +string Marca
+    +string Modelo
+    +string Color
+}
+
+class Reserva {
+    +int idReserva
+    +date Fecha
+    +string HoraInicio
+    +string HoraFin
+    +string Estado
+}
+
+class EspacioParqueo {
+    +int idEspacio
+    +string Numero
+    +string Ubicacion
+    +string Tipo
+    +string Estado
+}
+
+class RegistroAcceso {
+    +int idRegistro
+    +datetime FechaEntrada
+    +datetime FechaSalida
+}
+
+class Administrador {
+    +int idAdmin
+    +string Nombre
+}
+
+class Guardia {
+    +int idGuardia
+    +string Nombre
+}
+
+Usuario "1" --> "0..*" Vehiculo : posee
+
+Usuario "1" --> "0..*" Reserva : realiza
+
+Reserva "0..*" --> "1" EspacioParqueo : asigna
+
+Vehiculo "1" --> "0..*" RegistroAcceso : registra
+
+Administrador "1" --> "0..*" EspacioParqueo : gestiona
+
+Guardia "1" --> "0..*" RegistroAcceso : valida

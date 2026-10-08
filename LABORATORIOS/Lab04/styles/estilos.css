@@ -1,0 +1,33 @@
+header{
+  background-color: rgb(17, 0, 255);
+  color: white;
+  text-align: center;
+}
+
+/* id #*/
+#menu{
+  background-color: rgb(240, 239, 246);
+  color: white;
+  text-align: center;
+}
+
+#menu ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li{
+  display: inline;
+  margin-right: 20px;
+}
+
+
+/* class . */
+
+.item {
+    display: inline-block;
+    background-color: #b2f174;
+    margin-right: 10px;
+
+}
