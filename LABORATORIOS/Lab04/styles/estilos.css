@@ -1,25 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+main {
+  padding: 10rem;
+}
+
+
 header{
   background-color: rgb(17, 0, 255);
   color: white;
   text-align: center;
+  padding: 20px;
 }
 
 /* id #*/
 #menu{
-  background-color: rgb(240, 239, 246);
+  background-color: rgb(255, 255, 255);
   color: white;
   text-align: center;
+  padding: 20px;
 }
 
 #menu ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
+  
 }
 
 #menu li{
   display: inline;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 
@@ -27,7 +42,80 @@ header{
 
 .item {
     display: inline-block;
-    background-color: #b2f174;
+    background-color:rgb(17, 0, 255);
     margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    
+}
+
+.item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input:focus {
+  border-color: rgb(17, 0, 255);
+  color: rgb(10, 10, 10);/* Cambia el color del borde y del texto al enfocar el input */
+  outline: none; /* Elimina el contorno predeterminado del navegador */
+}
+
+button {
+    background-color: rgb(17, 0, 255);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+#video-section {
+  margin-top: 20px; /* Espacio encima del video */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px; /* Espacio entre los videos */
 
 }
+ 
+#video-section iframe {
+  width: 100%;
+  max-width: 600px;
+  /* Ancho máximo del video */
+  height: 350px;
+  border-radius: 15px;
+  border: 3px solid #727272;
+  /* Borde alrededor del video */
+}
+
+
+
+button:hover {
+    background-color: rgb(8, 25, 122);
+
+}  /* Cambia el color del botón al pasar el mouse por encima */     
+
+h1:hover {
+    color: #fd0800;
+}  /* Cambia el color del texto al pasar el mouse por encima */ 
+
+
+footer {
+  color: rgb(8, 25, 122);
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+
+
