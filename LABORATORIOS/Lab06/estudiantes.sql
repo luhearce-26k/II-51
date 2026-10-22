@@ -9,23 +9,23 @@ create table public.estudiantes (
 ) TABLESPACE pg_default;
 
 
-INSERT INTO public.estudiantes (nombre, apellido, correo, carrera, created_at) VALUES
-('JANNA KAMILA', 'ALFONSO MORA', 'janna12st@gmail.com', 'Info', now()),
-('SEBASTIAN', 'ARTAVIA SANCHEZ', 'sebastianartavias@gmail.com', 'Info', now()),
-('JONATHAN ARIEL', 'AZOFEIFA CHACON', 'azofeifaariel21@gmail.com', 'Info', now()),
-('MANFRED ESTEBAN', 'BADILLA ARIAS', 'manfredbadilla@live.com', 'Info', now()),
-('GEREMY JESUS', 'BERMUDEZ GUILLEN', 'bermudezgeremy1@gmail.com', 'Info', now()),
-('KRYSTELL', 'CABALCETA RUIZ', 'krystellcabalceta@gmail.com', 'Info', now()),
-('DAVID ANTONIO', 'CALDERON QUESADA', 'dcalderon179105@gmail.com', 'Info', now()),
-('ADANIS', 'CAMPOS BALTODANO', 'adanisc@gmail.com', 'Info', now()),
-('TATIANA VANESSA', 'CASCANTE LOBO', 'tatiana.cas00@gmail.com', 'Info', now()),
-('CARLOS MAURICIO', 'DELGADO RODRIGUEZ', 'carlosmdr07@hotmail.com', 'Info', now()),
-('MINOR ALBERTO', 'ESPINOZA PADILLA', 'maep166@hotmail.com', 'Info', now()),
-('ERICK EDUARDO', 'FALLAS PEREZ', 'erickfallasp@hotmail.com', 'Info', now()),
-('MARITZA ISSILMA', 'GARCIA ABARCA', 'maritzaissilmag@gmail.com', 'Info', now()),
-('JENIFFER PATRICIA', 'GARCIA CALDERON', 'jeniffer012560@gmail.com', 'Info', now()),
-('SEBASTIAN JESUS', 'GARITA MOLINA', 'sebastiangarita7@gmail.com', 'Info', now()),
-('SAUL', 'GONZALEZ LOPEZ', 'saul2006r3@gmail.com', 'Info', now()),
-('LINDER', 'GUTIERREZ GARCIA', 'lindertulio@gmail.com', 'Info', now()),
-('JARLEY ANTONIO', 'JEREZ MORALES', 'jarleym213@gmail.com', 'Info', now()),
-('AETHAN JAMAL', 'LOWE GUERRERO', 'jamalaethan@gmail.com', 'Info', now());
+INSERT INTO public.estudiantes (nombre, apellido, correo, carrera) VALUES
+('JANNA KAMILA', 'ALFONSO MORA', 'janna12st@gmail.com', 'Info'),
+('SEBASTIAN', 'ARTAVIA SANCHEZ', 'sebastianartavias@gmail.com', 'Info'),
+('JONATHAN ARIEL', 'AZOFEIFA CHACON', 'azofeifaariel21@gmail.com', 'Info'),
+('MANFRED ESTEBAN', 'BADILLA ARIAS', 'manfredbadilla@live.com', 'Info'),
+('GEREMY JESUS', 'BERMUDEZ GUILLEN', 'bermudezgeremy1@gmail.com', 'Info'),
+('KRYSTELL', 'CABALCETA RUIZ', 'krystellcabalceta@gmail.com', 'Info'),
+('DAVID ANTONIO', 'CALDERON QUESADA', 'dcalderon179105@gmail.com', 'Info'),
+('ADANIS', 'CAMPOS BALTODANO', 'adanisc@gmail.com', 'Info'),
+('TATIANA VANESSA', 'CASCANTE LOBO', 'tatiana.cas00@gmail.com', 'Info'),
+('CARLOS MAURICIO', 'DELGADO RODRIGUEZ', 'carlosmdr07@hotmail.com', 'Info'),
+('MINOR ALBERTO', 'ESPINOZA PADILLA', 'maep166@hotmail.com', 'Info'),
+('ERICK EDUARDO', 'FALLAS PEREZ', 'erickfallasp@hotmail.com', 'Info'),
+('MARITZA ISSILMA', 'GARCIA ABARCA', 'maritzaissilmag@gmail.com', 'Info'),
+('JENIFFER PATRICIA', 'GARCIA CALDERON', 'jeniffer012560@gmail.com', 'Info'),
+('SEBASTIAN JESUS', 'GARITA MOLINA', 'sebastiangarita7@gmail.com', 'Info'),
+('SAUL', 'GONZALEZ LOPEZ', 'saul2006r3@gmail.com', 'Info'),
+('LINDER', 'GUTIERREZ GARCIA', 'lindertulio@gmail.com', 'Info'),
+('JARLEY ANTONIO', 'JEREZ MORALES', 'jarleym213@gmail.com', 'Info'),
+('AETHAN JAMAL', 'LOWE GUERRERO', 'jamalaethan@gmail.com', 'Info');
