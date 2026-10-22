@@ -19,6 +19,7 @@ const txtNombre = document.getElementById("txtNombre");
 const txtApellido = document.getElementById("txtApellido");
 const txtCorreo = document.getElementById("txtCorreo");
 const txtCarrera = document.getElementById("txtCarrera");
+const txtFechaNac = document.getElementById("txtFechaNac");
 
 // Tabla
 const tbody = document.getElementById("tbodyStudents");
