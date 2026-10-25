@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vehículos | U Parking</title>
+
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>U Parking</h1>
+        <p>Sistema de Gestión de Parqueos Universitarios</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="usuarios.html">Usuarios</a></li>
+            <li><a href="espacios.html">Espacios</a></li>
+            <li><a href="registros.html">Registros</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Gestión de Vehículos</h2>
+
+            <p>
+                En este módulo se administra la información de los vehículos
+                registrados en U Parking y su relación con los usuarios
+                propietarios.
+            </p>
+        </section>
+
+        <section>
+            <h2>Registrar Vehículo</h2>
+
+            <form action="#" method="get">
+
+                <div class="form">
+                    <label for="idUsuario">ID de usuario:</label>
+                    <input
+                        type="number"
+                        id="idUsuario"
+                        name="idUsuario"
+                        min="1"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="placa">Placa:</label>
+                    <input
+                        type="text"
+                        id="placa"
+                        name="placa"
+                        maxlength="10"
+                        placeholder="Ej. ABC-123"
+                        required>
+                </div>
+
+                
+                <div class="form">
+                    <label for="modelo">Marca:</label>
+                    <input
+                        type="text"
+                        id="modelo"
+                        name="modelo"
+                        maxlength="50"
+                        placeholder="Ej. Toyota"
+                        required>
+                </div>
+
+                         
+
+                <button class="btn" type="submit">
+                    Registrar vehículo
+                </button>
+
+            </form>
+        </section>
+
+        <section>
+            <h2>Vehículos Registrados</h2>
+
+            <div class="contenedor-tabla">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Usuario</th>
+                            <th>Placa</th>                            
+                            <th>Marca</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>ABC-123</td>
+                            <td>Toyota</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>XYZ-456</td>
+                            <td>Hyundai</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>  
+                            <td>DEF-789</td>
+                            <td>Nissan</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&reg; 2026 U Parking - Proyecto curso II-51</p>
+    </footer>
+
+</body>
+
+</html>

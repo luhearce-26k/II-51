@@ -38,6 +38,7 @@ nav ul {
     display: flex;
     justify-content:space-around;
     flex-wrap: wrap;
+    
 }
 
 nav li {
@@ -74,7 +75,7 @@ section h2 {
     color: #003366;
 }
 
-/* MÓDULOS */
+/* MODULES */
 
 .contenedor-modulos {
     display: flex;
@@ -99,7 +100,7 @@ section h2 {
     margin-bottom: 15px;
 }
 
-/* BOTONES */
+/* BUTTONS */
 
 .btn {
     display: inline-block;
@@ -126,3 +127,67 @@ footer {
     padding: 15px;
     margin-top: 20px;
 }
+
+/* FORMS */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form label {
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.form input,
+.form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form input:focus,
+.form select:focus {
+    outline: 2px solid #80b5e8;
+    border-color: #0055aa;
+}
+
+/* TABLES */
+
+.contenedor-tabla {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+th {
+    background-color: #0055aa;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f6f8;
+}
+
+tbody tr:hover {
+    background-color: #e2edf7;
+}
+

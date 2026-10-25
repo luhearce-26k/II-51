@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservas | U Parking</title>
+
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>U Parking</h1>
+        <p>Sistema de Gestión de Parqueos Universitarios</p>
+    </header>
+
+     <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="usuarios.html">Usuarios</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="espacios.html">Espacios</a></li>
+            <li><a href="registros.html">Registros</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Gestión de Reservas</h2>
+
+            <p>
+                En este módulo se administra la información de las reservas
+                de espacios de parqueo realizadas por los usuarios de la
+                universidad. Permite identificar al usuario, el vehículo,
+                el espacio solicitado y el horario correspondiente.
+            </p>
+        </section>
+
+        <section>
+            <h2>Registrar Reserva</h2>
+
+            <form action="#" method="get">
+
+                <div class="form">
+                    <label for="idUsuario">ID del usuario:</label>
+                    <input type="number" id="idUsuario" name="idUsuario" min="1" required>
+                </div>
+
+                <div class="form">
+                    <label for="Placa">Placa:</label>
+                    <input type="text" id="Placa" name="Placa" maxlength="07" placeholder="Ej. ABC-123" required>
+                </div>
+
+                <div class="form">
+                    <label for="idEspacio">ID del espacio:</label>
+                    <input type="number" id="idEspacio" name="idEspacio" min="1" required>
+                </div>
+
+                <div class="form">
+                    <label for="fecha">Fecha de la reserva:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+
+                <div class="form">
+                    <label for="horaInicio">Hora de inicio:</label>
+                    <input type="time" id="horaInicio" name="horaInicio" required>
+                </div>
+
+                <div class="form">
+                    <label for="horaFin">Hora de finalización:</label>
+                    <input type="time" id="horaFin" name="horaFin" required>
+                </div>
+
+                <div class="form">
+                    <label for="estado">Estado de la reserva:</label>
+                    <select id="estado" name="estado" required>
+                        <option value="">Seleccione un estado</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Confirmada">Confirmada</option>
+                        <option value="Cancelada">Cancelada</option>
+                        <option value="Finalizada">Finalizada</option>
+                    </select>
+                </div>
+
+                <button class="btn" type="submit">Registrar reserva</button>
+
+            </form>
+        </section>
+
+        <section>
+            <h2>Reservas Registradas</h2>
+
+            <div class="contenedor-tabla">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Usuario</th>
+                            <th>Placa</th>
+                            <th>ID Espacio</th>
+                            <th>Fecha</th>
+                            <th>Hora de inicio</th>
+                            <th>Hora de finalización</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>ABC-123</td>
+                            <td>1/01</td>
+                            <td>2026-11-02</td>
+                            <td>08:00</td>
+                            <td>10:00</td>
+                            <td>Confirmada</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>XYZ-456</td>
+                            <td>1/02</td>
+                            <td>2026-11-02</td>
+                            <td>09:00</td>
+                            <td>11:00</td>
+                            <td>Pendiente</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>DEF-789</td>
+                            <td>1/03</td>
+                            <td>2026-11-03</td>
+                            <td>13:00</td>
+                            <td>15:00</td>
+                            <td>Cancelada</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&reg; 2026 U Parking - Proyecto curso II-51</p>
+    </footer>
+
+</body>
+
+</html>

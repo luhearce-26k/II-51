@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Usuarios | U Parking</title>
+
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>U Parking</h1>
+        <p>Sistema de Gestión de Parqueos Universitarios</p>
+    </header>
+
+     <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="espacios.html">Espacios</a></li>
+            <li><a href="registros.html">Registros</a></li>
+
+        </ul>
+        
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Gestión de Usuarios</h2>
+
+            <p>
+                En este módulo se administra la información de los usuarios
+                registrados en el sistema U Parking.
+            </p>
+        </section>
+
+        <section>
+            <h2>Registrar Usuario</h2>
+
+            <form action="#" method="get">
+
+                <div class="form">
+                    <label for="nombre">Nombre completo:</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        maxlength="100"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="idUsuario">ID de usuario:</label>
+                    <input
+                        type="number"
+                        id="idUsuario"
+                        name="idUsuario"
+                        min="1"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="correo">Correo electrónico:</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="contrasena">Contraseña:</label>
+                    <input
+                        type="password"
+                        id="contrasena"
+                        name="contrasena"
+                        minlength="8"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="rol">Roles:</label>
+                    <select id="rol" name="rol" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="funcionario">Funcionario</option>
+                        <option value="guardia">Guardia</option>
+                        <option value="administrador">Administrador</option>
+                    </select>
+                </div>
+
+                <button class="btn" type="submit">Registrar usuario</button>
+
+            </form>
+        </section>
+
+        <section>
+            <h2>Usuarios Registrados</h2>
+
+            <div class="contenedor-tabla">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre completo</th>
+                            <th>Correo electrónico</th>
+                            <th>Rol</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>María Rodríguez</td>
+                            <td>maria@ejemplo.com</td>
+                            <td>Estudiante</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>Carlos Jiménez</td>
+                            <td>carlos@ejemplo.com</td>
+                            <td>Funcionario</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Andrea Vargas</td>
+                            <td>andrea@ejemplo.com</td>
+                            <td>Estudiante</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&reg; 2026 U Parking - Proyecto curso II-51</p>
+    </footer>
+
+</body>
+
+</html>
