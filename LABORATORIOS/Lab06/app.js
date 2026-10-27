@@ -104,14 +104,22 @@ const consultarEstudiantes = async () => {
   // usamos el cliente de Supabase para hacer una consulta a la tabla "estudiantes"
   // json: { "data": [], "error": null }
   const search = txtSearch.value.trim() || ""; // si el valor es vacío, se asigna una cadena vacía
-  const query = supabase.from("estudiantes").select("id,nombre,apellido,correo,carrera,fecha_nacimiento");
+
+  const query = supabase
+    .from("estudiantes")
+    .select("id,nombre,apellido,correo,carrera,fecha_nacimiento");
 
   // filtros
   if (search.length > 0) {
     // query.ilike("nombre", `%${search}%`);
     query.or(`nombre.ilike.%${search}%,apellido.ilike.%${search}%`);
   }
+
   const { data, error } = await query;
+
+  console.table(data);
+  console.log("Estudiantes recibidos de Supabase:", data);
+  console.log("Fecha del primer estudiante:", data?.[0]?.fecha_nacimiento);
 
   if (error) {
     console.error(error);
@@ -125,19 +133,25 @@ const consultarEstudiantes = async () => {
   // data es un arreglo de objetos, cada objeto representa un estudiante
   data.forEach((r) => {
     const tr = document.createElement("tr"); //<tr></tr>
+
     tr.setAttribute("data-id", r.id);
-    //<td>${r.id ?? ""}</td>
+
+  
+    const fecha = r.fecha_nacimiento
+      ? r.fecha_nacimiento.split("-").reverse().join("/")
+      : "Sin fecha";
+
     tr.innerHTML = `
-        <td>${r.nombre ?? ""}</td>
-        <td>${r.apellido ?? ""}</td>
-        <td>${r.correo ?? ""}</td>
-        <td>${r.carrera ?? ""}</td>
-        <td>${r.fecha_nacimiento ?? ""}</td>
-        <td>
-          <button class="btnEditar" data-id="${r.id}">Editar</button>
-          <button class="btnEliminar" data-id="${r.id}">Eliminar</button>
-        </td>
-      `;
+      <td>${r.nombre ?? ""}</td>
+      <td>${r.apellido ?? ""}</td>
+      <td>${r.correo ?? ""}</td>
+      <td>${r.carrera ?? ""}</td>
+      <td>${fecha}</td>
+      <td>
+        <button class="btnEditar" data-id="${r.id}">Editar</button>
+        <button class="btnEliminar" data-id="${r.id}">Eliminar</button>
+      </td>
+    `;
 
     tbody.appendChild(tr);
   });
