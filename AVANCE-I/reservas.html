@@ -8,6 +8,8 @@
     <title>Reservas | U Parking</title>
 
     <link rel="stylesheet" href="styles/estilos.css">
+    
+
 </head>
 
 <body>
@@ -22,7 +24,6 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="usuarios.html">Usuarios</a></li>
             <li><a href="vehiculos.html">Vehículos</a></li>
-            <li><a href="espacios.html">Espacios</a></li>
             <li><a href="registros.html">Registros</a></li>
 
         </ul>
@@ -34,10 +35,8 @@
             <h2>Gestión de Reservas</h2>
 
             <p>
-                En este módulo se administra la información de las reservas
-                de espacios de parqueo realizadas por los usuarios de la
-                universidad. Permite identificar al usuario, el vehículo,
-                el espacio solicitado y el horario correspondiente.
+                En este módulo se registra la reserva de espacios de parqueo por parte de los usuarios de la universidad, indicando el usuario, el vehículo, el espacio solicitado y el horario correspondiente.
+            
             </p>
         </section>
 
@@ -47,8 +46,8 @@
             <form action="#" method="get">
 
                 <div class="form">
-                    <label for="idUsuario">ID del usuario:</label>
-                    <input type="number" id="idUsuario" name="idUsuario" min="1" required>
+                    <label for="nombreUsuario">Nombre del usuario:</label>
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" min="1" required>
                 </div>
 
                 <div class="form">
@@ -76,16 +75,7 @@
                     <input type="time" id="horaFin" name="horaFin" required>
                 </div>
 
-                <div class="form">
-                    <label for="estado">Estado de la reserva:</label>
-                    <select id="estado" name="estado" required>
-                        <option value="">Seleccione un estado</option>
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="Confirmada">Confirmada</option>
-                        <option value="Cancelada">Cancelada</option>
-                        <option value="Finalizada">Finalizada</option>
-                    </select>
-                </div>
+            
 
                 <button class="btn" type="submit">Registrar reserva</button>
 
@@ -99,7 +89,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID Usuario</th>
+                            <th>Nombre Usuarios</th>
                             <th>Placa</th>
                             <th>ID Espacio</th>
                             <th>Fecha</th>
@@ -111,19 +101,19 @@
 
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td>María Rodríguez</td>
                             <td>ABC-123</td>
-                            <td>1/01</td>
+                            <td>A-101</td>
                             <td>2026-11-02</td>
                             <td>08:00</td>
                             <td>10:00</td>
-                            <td>Confirmada</td>
+                            <td>Pendiente</td>
                         </tr>
 
                         <tr>
-                            <td>2</td>
+                            <td>Carlos Jiménez</td>
                             <td>XYZ-456</td>
-                            <td>1/02</td>
+                            <td>A-102</td>
                             <td>2026-11-02</td>
                             <td>09:00</td>
                             <td>11:00</td>
@@ -131,13 +121,13 @@
                         </tr>
 
                         <tr>
-                            <td>3</td>
+                            <td>Andrea Vargas</td>
                             <td>DEF-789</td>
-                            <td>1/03</td>
+                            <td>A-103</td>
                             <td>2026-11-03</td>
                             <td>13:00</td>
                             <td>15:00</td>
-                            <td>Cancelada</td>
+                            <td>Pendiente</td>
                         </tr>
                     </tbody>
                 </table>

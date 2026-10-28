@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registros | U Parking</title>
+
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>U Parking</h1>
+        <p>Sistema de Gestión de Parqueos Universitarios</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="vehiculos.html">Vehículos</a></li>
+            <li><a href="usuarios.html">Usuarios</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Control de Registros</h2>
+
+            <p>
+                En este módulo se puede consultar y validar la información
+                de las reservas realizadas anteriormente en U Parking.
+                El administrador puede modificar y eliminar registros.
+            </p>
+        </section>
+
+        <section>
+            <h2>Buscar Reserva</h2>
+
+            <form action="#" method="get" onsubmit="return buscarRegistro(event)">
+
+                <div class="form">
+                    <label for="criterioBusqueda">Buscar por:</label>
+
+                    <select id="criterioBusqueda" name="criterioBusqueda" required>
+                        <option value="">Seleccione un criterio</option>
+                        <option value="espacio">Nombre Completo</option>
+                        <option value="usuario">ID del espacio</option>
+                        <option value="placa">Placa del vehículo</option>
+                    </select>
+                </div>
+
+                <div class="form">
+                    <label for="valorBusqueda">Información de búsqueda:</label>
+
+                    <input
+                        type="text"
+                        id="valorBusqueda"
+                        name="valorBusqueda"
+                        placeholder="Ingrese el valor a buscar"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="fechaBusqueda">Fecha de la reserva:</label>
+
+                    <input
+                        type="date"
+                        id="fechaBusqueda"
+                        name="fechaBusqueda">
+                </div>
+
+                <div class="form">
+                    <label for="estadoBusqueda">Estado de la reserva:</label>
+
+                    <select id="estadoBusqueda" name="estadoBusqueda">
+                        <option value="">Todos los estados</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Confirmada">Confirmada</option>
+                        <option value="Finalizada">Finalizada</option>
+                        <option value="Cancelada">Cancelada</option>
+                    </select>
+                </div>
+
+                <button class="btn" type="submit">Buscar reserva</button>
+
+                <button class="btn" type="button" onclick="mostrarRegistros()">
+                    Mostrar todos
+                </button>
+
+            </form>
+        </section>
+
+        <section>
+            <h2>Historial de Reservas</h2>
+
+            <p>
+                Consulte los datos y valide que la
+                información corresponda con el registro realizado.
+            </p>
+
+            <div class="contenedor-tabla">
+
+                <table id="tablaRegistros">
+                    <thead>
+                        <tr>
+                            <th>Nombre Usuarios</th>
+                            <th>ID espacio</th>
+                            <th>Placa del vehículo</th>
+                            <th>Fecha y hora</th>
+                            <th>Marca</th>
+                            <th>Estado de la reserva</th>
+                            <th>Administración</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>María Rodríguez</td>
+                            <td>A-101</td>
+                            <td>ABC-123</td>
+                            <td>2026-10-28 08:00</td>
+                            <td>Toyota</td>
+                            <td>Pendiente</td>
+                            
+                            <td>
+                                <button class="btn" type="button"
+                                    onclick="editarRegistro(this)">
+                                    Editar
+                                </button>
+
+                                <button class="btn" type="button"
+                                    onclick="eliminarRegistro(this)">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Carlos Jiménez</td>
+                            <td>A-102</td>
+                            <td>XYZ-456</td>
+                            <td>2026-10-27 10:00</td>
+                            <td>Hyundai</td>
+                            <td>Pendiente</td>
+                            
+                            <td>
+                                <button class="btn" type="button"
+                                    onclick="editarRegistro(this)">
+                                    Editar
+                                </button>
+
+                                <button class="btn" type="button"
+                                    onclick="eliminarRegistro(this)">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Andrea Vargas</td>
+                            <td>A-103</td>
+                            <td>DEF-789</td>
+                            <td>2026-10-26 13:00</td>
+                            <td>Nissan</td>
+                            <td>Pendiente</td>
+
+                            <td>
+                                <button class="btn" type="button"
+                                    onclick="editarRegistro(this)">
+                                    Editar
+                                </button>
+
+                                <button class="btn" type="button"
+                                    onclick="eliminarRegistro(this)">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+        <section id="seccionEdicion" hidden>
+            <h2>Modificar Registro de Reserva</h2>
+
+            <form id="formularioEdicion" onsubmit="return guardarCambios(event)">
+
+                <input type="hidden" id="filaRegistro">
+
+                <div class="form">
+                    <label for="usuarioEditar">Nombre del Usuario</label>
+
+                    <input
+                        type="text"
+                        id="usuarioEditar"
+                        maxlength="20"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="espacioEditar">ID espacio:</label>
+
+                    <input
+                        type="text"
+                        id="espacioEditar"
+                        maxlength="20"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="placaEditar">Placa del vehículo:</label>
+
+                    <input
+                        type="text"
+                        id="placaEditar"
+                        maxlength="10"
+                        required>
+                </div>
+
+                <div class="form">
+                    <label for="fechaHoraEditar">Fecha y hora:</label>
+
+                    <input
+                        type="datetime-local"
+                        id="fechaHoraEditar"
+                        required>
+                </div>
+
+
+                <div class="form">
+                    <label for="estadoEditar">Estado de la reserva:</label>
+
+                    <select id="estadoEditar" required>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Confirmada">Confirmada</option>
+                        <option value="Finalizada">Finalizada</option>
+                        <option value="Cancelada">Cancelada</option>
+                    </select>
+                </div>
+
+                
+
+                <button class="btn" type="submit">Guardar cambios</button>
+
+                <button class="btn" type="button" onclick="cancelarEdicion()">
+                    Cancelar
+                </button>
+
+            </form>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>&reg; 2026 U Parking - Proyecto curso II-51</p>
+    </footer>
+
+    
+<script>
+    // Busca reservas por nombre, espacio, placa, fecha y estado.
+    function buscarRegistro(event) {
+        event.preventDefault();
+
+        const criterio =
+            document.getElementById("criterioBusqueda").value;
+
+        const valor =
+            document.getElementById("valorBusqueda").value
+                .trim()
+                .toLowerCase();
+
+        const fecha =
+            document.getElementById("fechaBusqueda").value;
+
+        const estado =
+            document.getElementById("estadoBusqueda").value;
+
+        const filas =
+            document.querySelectorAll("#tablaRegistros tbody tr");
+
+        let encontrados = 0;
+
+        filas.forEach(function (fila) {
+            const celdas = fila.cells;
+
+            // Orden de columnas:
+            // 0 Nombre, 1 Espacio, 2 Placa,
+            // 3 Fecha y hora, 4 Estado, 5 Administración.
+            let coincideTexto = true;
+
+            if (valor !== "") {
+                let columna = 0;
+
+                if (criterio === "espacio") {
+                    columna = 1;
+                } else if (criterio === "usuario") {
+                    columna = 0;
+                } else if (criterio === "placa") {
+                    columna = 2;
+                }
+
+                coincideTexto =
+                    celdas[columna].textContent
+                        .trim()
+                        .toLowerCase()
+                        .includes(valor);
+            }
+
+            const coincideFecha =
+                fecha === "" ||
+                celdas[3].textContent.trim().substring(0, 10) === fecha;
+
+            const coincideEstado =
+                estado === "" ||
+                celdas[4].textContent.trim() === estado;
+
+            const coincide =
+                coincideTexto && coincideFecha && coincideEstado;
+
+            fila.hidden = !coincide;
+
+            if (coincide) {
+                encontrados++;
+            }
+        });
+
+        if (encontrados === 0) {
+            alert("No se encontraron reservas con esos criterios.");
+        }
+
+        return false;
+    }
+
+    // Muestra todos los registros y limpia los filtros.
+    function mostrarRegistros() {
+        const filas =
+            document.querySelectorAll("#tablaRegistros tbody tr");
+
+        filas.forEach(function (fila) {
+            fila.hidden = false;
+        });
+
+        document.getElementById("criterioBusqueda").value = "";
+        document.getElementById("valorBusqueda").value = "";
+        document.getElementById("fechaBusqueda").value = "";
+        document.getElementById("estadoBusqueda").value = "";
+    }
+
+    // Muestra los datos de una reserva para validarlos.
+    function validarRegistro(boton) {
+        const fila = boton.closest("tr");
+        const celdas = fila.cells;
+
+        const mensaje =
+            "Verifique la siguiente información:\n\n" +
+            "Nombre del usuario: " + celdas[0].textContent.trim() + "\n" +
+            "ID del espacio: " + celdas[1].textContent.trim() + "\n" +
+            "Placa del vehículo: " + celdas[2].textContent.trim() + "\n" +
+            "Fecha y hora: " + celdas[3].textContent.trim() + "\n" +
+            "Estado: " + celdas[4].textContent.trim();
+
+        alert(mensaje);
+    }
+
+    // Abre el formulario de edición con los datos correctos.
+    function editarRegistro(boton) {
+        const fila = boton.closest("tr");
+        const celdas = fila.cells;
+
+        document.getElementById("filaRegistro").value =
+            fila.rowIndex;
+
+        // Nombre del usuario.
+        document.getElementById("usuarioEditar").value =
+            celdas[0].textContent.trim();
+
+        // ID del espacio.
+        document.getElementById("espacioEditar").value =
+            celdas[1].textContent.trim();
+
+        // Placa del vehículo.
+        document.getElementById("placaEditar").value =
+            celdas[2].textContent.trim();
+
+        // Fecha y hora.
+        document.getElementById("fechaHoraEditar").value =
+            celdas[3].textContent.trim().replace(" ", "T");
+
+        // Estado de la reserva.
+        document.getElementById("estadoEditar").value =
+            celdas[4].textContent.trim();
+
+        document.getElementById("seccionEdicion").hidden = false;
+
+        document.getElementById("seccionEdicion").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+
+    // Guarda los cambios en las columnas correspondientes.
+    function guardarCambios(event) {
+        event.preventDefault();
+
+        const numeroFila =
+            Number(document.getElementById("filaRegistro").value);
+
+        const fila =
+            document.getElementById("tablaRegistros").rows[numeroFila];
+
+        if (!fila || numeroFila < 1 || fila.cells.length < 6) {
+            alert("No se encontró el registro seleccionado.");
+            return false;
+        }
+
+        // Validar los campos obligatorios.
+        const usuario =
+            document.getElementById("usuarioEditar").value.trim();
+
+        const espacio =
+            document.getElementById("espacioEditar").value.trim();
+
+        const placa =
+            document.getElementById("placaEditar").value.trim();
+
+        const fechaHora =
+            document.getElementById("fechaHoraEditar").value;
+
+        const estado =
+            document.getElementById("estadoEditar").value;
+
+        if (!usuario || !espacio || !placa || !fechaHora || !estado) {
+            alert("Por favor, complete todos los campos.");
+            return false;
+        }
+
+        // Actualizar la fila sin cambiar el orden de las columnas.
+        fila.cells[0].textContent = usuario;
+        fila.cells[1].textContent = espacio;
+        fila.cells[2].textContent = placa.toUpperCase();
+        fila.cells[3].textContent = fechaHora.replace("T", " ");
+        fila.cells[4].textContent = estado;
+
+        // Cerrar y limpiar el formulario.
+        document.getElementById("seccionEdicion").hidden = true;
+        document.getElementById("formularioEdicion").reset();
+
+        alert("Los cambios se aplicaron temporalmente a la tabla.");
+
+        return false;
+    }
+
+    // Cierra el formulario sin guardar cambios.
+    function cancelarEdicion() {
+        document.getElementById("seccionEdicion").hidden = true;
+        document.getElementById("formularioEdicion").reset();
+    }
+
+    // Elimina un registro después de confirmar la acción.
+    function eliminarRegistro(boton) {
+        const fila = boton.closest("tr");
+
+        const espacio = fila.cells[1].textContent.trim();
+        const usuario = fila.cells[0].textContent.trim();
+
+        const confirmar = confirm(
+            "¿Desea eliminar la reserva de " + usuario +
+            " correspondiente al espacio " + espacio + "?"
+        );
+
+        if (confirmar) {
+            fila.remove();
+
+            alert(
+                "Registro eliminado de la tabla temporal. " +
+                "Este cambio no se guarda en una base de datos."
+            );
+        }
+    }
+</script>
+</body>
+</html>
