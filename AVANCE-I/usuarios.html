@@ -207,7 +207,7 @@
    
 
     <script>
-        // Abre el formulario y carga los datos de la fila seleccionada.
+        // Abre el formulario y carga los datos de la fila seleccionada //
         function modificarUsuario(boton) {
             const fila = boton.closest("tr");
             const celdas = fila.cells;
@@ -235,7 +235,7 @@
             });
         }
 
-        // Guarda los cambios en la tabla de esta página. // 
+        // Guarda los cambios en la tabla de esta página // 
         function guardarCambios(event) {
             event.preventDefault();
 
@@ -269,13 +269,13 @@
             return false;
         }
 
-        // Cierra el formulario sin guardar los cambios.
+        // Cierra el formulario sin guardar los cambios//
         function cancelarEdicion() {
             document.getElementById("seccionEdicion").hidden = true;
             document.getElementById("formularioEdicion").reset();
         }
 
-        // Busca coincidencias en la tabla por nombre o correo.
+        // Busca coincidencias en la tabla por nombre o correo//
         function buscarUsuario(event) {
             event.preventDefault();
 
@@ -314,7 +314,7 @@
             return false;
         }
 
-        // Vuelve a mostrar todos los usuarios de ejemplo.
+        // Vuelve a mostrar todos los usuarios de ejemplo // 
         function mostrarUsuarios() {
             const filas =
                 document.querySelectorAll("#tablaUsuarios tbody tr");
@@ -327,7 +327,7 @@
             document.getElementById("valorBusqueda").value = "";
         }
 
-        // Solo solicita confirmación, no elimina registros.
+        // Solo solicita confirmación, no elimina registros // 
         function eliminarUsuario(boton) {
             const fila = boton.closest("tr");
             const nombre = fila.cells[0].textContent.trim();
