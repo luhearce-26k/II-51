@@ -245,10 +245,10 @@ function App() {
         </div>
 
         <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-          <button type="submit">
+          <button type="submit" className="btn btn-primary">
             {form.id ? "Actualizar" : "Agregar"}
           </button>
-          <button type="button" onClick={handleCancel}>
+          <button type="button" onClick={handleCancel} className="btn btn-danger">
             Cancelar
           </button>
         </div>
