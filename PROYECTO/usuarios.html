@@ -1,12 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Usuarios | U Parking</title>
-
     <link rel="stylesheet" href="styles/estilos.css">
 </head>
 
@@ -30,52 +28,35 @@
 
         <section>
             <h2>Gestión de Usuarios</h2>
-
-            <p>
-                En este módulo se puede consultar la información de los usuarios
-                registrados en U Parking, modificar sus datos y gestionar su estado.
-            </p>
+            <p>En este módulo se puede consultar la información de los usuarios registrados en U Parking, modificar sus datos y gestionar su estado.</p>
         </section>
 
         <section>
             <h2>Buscar Usuario</h2>
 
-            <form action="#" method="get" onsubmit="return buscarUsuario(event)">
-
+            <form onsubmit="buscarUsuario(event)">
                 <div class="form">
                     <label for="criterioBusqueda">Buscar por:</label>
-
-                    <select id="criterioBusqueda" name="criterioBusqueda" required>
+                    <select id="criterioBusqueda" required>
                         <option value="">Seleccione un criterio</option>
-                        <option value="nombre">Nombre completo</option>
-                        <option value="correo">Correo electrónico</option>
+                        <option value="0">Nombre completo</option>
+                        <option value="1">Correo electrónico</option>
                     </select>
                 </div>
 
                 <div class="form">
                     <label for="valorBusqueda">Información de búsqueda:</label>
-
-                    <input
-                        type="text"
-                        id="valorBusqueda"
-                        name="valorBusqueda"
-                        placeholder="Ingrese el dato que desea buscar"
-                        required>
+                    <input type="text" id="valorBusqueda" placeholder="Ingrese el dato que desea buscar" required>
                 </div>
 
                 <button class="btn" type="submit">Buscar usuario</button>
-                
-                
-
             </form>
         </section>
 
         <section>
             <h2>Usuarios Registrados</h2>
 
-         
             <div class="contenedor-tabla">
-
                 <table id="tablaUsuarios">
                     <thead>
                         <tr>
@@ -94,261 +75,176 @@
                             <td>Estudiante</td>
                             <td>Activo</td>
                             <td>
-                                <button class="btn" type="button"
-                                    onclick="modificarUsuario(this)">
-                                    Modificar
-                                </button>
-
-                                <button class="btn" type="button"
-                                    onclick="eliminarUsuario(this)">
-                                    Eliminar
-                                </button>
+                                <button class="btn" type="button" onclick="modificarUsuario(this)">Modificar</button>
+                                <button class="btn" type="button" onclick="eliminarUsuario(this)">Eliminar</button>
                             </td>
                         </tr>
-
                         <tr>
                             <td>Carlos Jiménez</td>
                             <td>carlos@gmail.com</td>
                             <td>Funcionario</td>
                             <td>Activo</td>
                             <td>
-                                <button class="btn" type="button"
-                                    onclick="modificarUsuario(this)">
-                                    Modificar
-                                </button>
-
-                                <button class="btn" type="button"
-                                    onclick="eliminarUsuario(this)">
-                                    Eliminar
-                                </button>
+                                <button class="btn" type="button" onclick="modificarUsuario(this)">Modificar</button>
+                                <button class="btn" type="button" onclick="eliminarUsuario(this)">Eliminar</button>
                             </td>
                         </tr>
-
                         <tr>
                             <td>Andrea Vargas</td>
                             <td>andrea@gmail.com</td>
                             <td>Estudiante</td>
                             <td>Inactivo</td>
                             <td>
-                                <button class="btn" type="button"
-                                    onclick="modificarUsuario(this)">
-                                    Modificar
-                                </button>
-
-                                <button class="btn" type="button"
-                                    onclick="eliminarUsuario(this)">
-                                    Eliminar
-                                </button>
+                                <button class="btn" type="button" onclick="modificarUsuario(this)">Modificar</button>
+                                <button class="btn" type="button" onclick="eliminarUsuario(this)">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-
             </div>
         </section>
 
         <section id="seccionEdicion" hidden>
             <h2>Modificar información del usuario</h2>
 
-            <form id="formularioEdicion" onsubmit="return guardarCambios(event)">
-
-                <input type="hidden" id="filaUsuario">
-
+            <form id="formularioEdicion" onsubmit="guardarCambios(event)">
                 <div class="form">
                     <label for="nombreEditar">Nombre completo:</label>
-
-                    <input
-                        type="text"
-                        id="nombreEditar"
-                        maxlength="100"
-                        required>
+                    <input type="text" id="nombreEditar" maxlength="100" required>
                 </div>
 
                 <div class="form">
                     <label for="correoEditar">Correo electrónico:</label>
-
-                    <input
-                        type="email"
-                        id="correoEditar"
-                        required>
+                    <input type="email" id="correoEditar" required>
                 </div>
 
                 <div class="form">
                     <label for="rolEditar">Rol del usuario:</label>
-
                     <select id="rolEditar" required>
-                        <option value="Estudiante">Estudiante</option>
-                        <option value="Funcionario">Funcionario</option>
-                        <option value="Guardia">Guardia</option>
-                        <option value="Administrador">Administrador</option>
+                        <option>Estudiante</option>
+                        <option>Funcionario</option>
+                        <option>Guardia</option>
+                        <option>Administrador</option>
                     </select>
                 </div>
 
                 <div class="form">
                     <label for="estadoEditar">Estado del usuario:</label>
-
                     <select id="estadoEditar" required>
-                        <option value="Activo">Activo</option>
-                        <option value="Inactivo">Inactivo</option>
+                        <option>Activo</option>
+                        <option>Inactivo</option>
                     </select>
                 </div>
 
                 <button class="btn" type="submit">Guardar cambios</button>
-
-                <button class="btn" type="button" onclick="cancelarEdicion()">
-                    Cancelar
-                </button>
-
+                <button class="btn" type="button" onclick="cancelarEdicion()">Cancelar</button>
             </form>
         </section>
 
     </main>
 
-   
+    <footer>
+        <p>&reg; 2026 U Parking - Proyecto curso II-51</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        // Abre el formulario y carga los datos de la fila seleccionada //
+        const $ = id => document.getElementById(id);
+        const tabla = $("tablaUsuarios");
+        let filaSeleccionada = null;
+
+        // Modificar usuario
         function modificarUsuario(boton) {
-            const fila = boton.closest("tr");
-            const celdas = fila.cells;
+            filaSeleccionada = boton.closest("tr");
+            const celdas = filaSeleccionada.cells;
 
-            document.getElementById("filaUsuario").value =
-                fila.rowIndex;
+            ["nombreEditar", "correoEditar", "rolEditar", "estadoEditar"]
+                .forEach((id, i) => $(id).value = celdas[i].textContent.trim());
 
-            document.getElementById("nombreEditar").value =
-                celdas[0].textContent.trim();
-
-            document.getElementById("correoEditar").value =
-                celdas[1].textContent.trim();
-
-            document.getElementById("rolEditar").value =
-                celdas[2].textContent.trim();
-
-            document.getElementById("estadoEditar").value =
-                celdas[3].textContent.trim();
-
-            document.getElementById("seccionEdicion").hidden = false;
-
-            document.getElementById("seccionEdicion").scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            $("seccionEdicion").hidden = false;
+            $("seccionEdicion").scrollIntoView({ behavior: "smooth" });
         }
 
-        // Guarda los cambios en la tabla de esta página // 
-        function guardarCambios(event) {
+        // Guardar cambios
+        async function guardarCambios(event) {
             event.preventDefault();
 
-            const numeroFila =
-                Number(document.getElementById("filaUsuario").value);
+            if (!filaSeleccionada) return;
 
-            const fila =
-                document.getElementById("tablaUsuarios").rows[numeroFila];
+            const datos = ["nombreEditar", "correoEditar", "rolEditar", "estadoEditar"]
+                .map(id => $(id).value.trim());
 
-            if (!fila) {
-                alert("No se encontró el usuario seleccionado.");
-                return false;
+            if (!datos[0] || !datos[1]) {
+                return Swal.fire("Campos incompletos", "Complete el nombre y correo electrónico.", "warning");
             }
 
-            fila.cells[0].textContent =
-                document.getElementById("nombreEditar").value.trim();
+            datos.forEach((dato, i) => filaSeleccionada.cells[i].textContent = dato);
 
-            fila.cells[1].textContent =
-                document.getElementById("correoEditar").value.trim();
+            cancelarEdicion();
 
-            fila.cells[2].textContent =
-                document.getElementById("rolEditar").value;
-
-            fila.cells[3].textContent =
-                document.getElementById("estadoEditar").value;
-
-            document.getElementById("seccionEdicion").hidden = true;
-
-            alert("Los cambios se aplicaron temporalmente a la tabla.");
-
-            return false;
+            await Swal.fire("¡Actualizado!", "Los cambios se aplicaron temporalmente.", "success");
         }
 
-        // Cierra el formulario sin guardar los cambios//
+        // Cancelar edición
         function cancelarEdicion() {
-            document.getElementById("seccionEdicion").hidden = true;
-            document.getElementById("formularioEdicion").reset();
+            $("seccionEdicion").hidden = true;
+            $("formularioEdicion").reset();
+            filaSeleccionada = null;
         }
 
-        // Busca coincidencias en la tabla por nombre o correo//
-        function buscarUsuario(event) {
+        // Buscar usuario
+        async function buscarUsuario(event) {
             event.preventDefault();
 
-            const criterio =
-                document.getElementById("criterioBusqueda").value;
+            const criterio = $("criterioBusqueda").value;
+            const valor = $("valorBusqueda").value.trim().toLowerCase();
 
-            const valor =
-                document.getElementById("valorBusqueda").value
-                    .trim()
-                    .toLowerCase();
-
-            const filas =
-                document.querySelectorAll("#tablaUsuarios tbody tr");
+            if (!valor || criterio === "") {
+                return Swal.fire("Búsqueda incompleta", "Seleccione un criterio e ingrese un dato.", "warning");
+            }
 
             let encontrados = 0;
 
-            filas.forEach(function (fila) {
-                const columna = criterio === "nombre" ? 0 : 1;
-
-                const contenido =
-                    fila.cells[columna].textContent.toLowerCase();
-
-                const coincide = contenido.includes(valor);
-
+            Array.from(tabla.tBodies[0].rows).forEach(fila => {
+                const coincide = fila.cells[Number(criterio)].textContent.toLowerCase().includes(valor);
                 fila.hidden = !coincide;
-
-                if (coincide) {
-                    encontrados++;
-                }
+                if (coincide) encontrados++;
             });
 
-            if (encontrados === 0) {
-                alert("No se encontraron usuarios con ese criterio.");
+            if (encontrados) {
+                await Swal.fire("Búsqueda completada", `Se encontraron ${encontrados} usuario(s).`, "success");
+            } else {
+                await Swal.fire("Sin resultados", "No se encontraron usuarios.", "info");
             }
-
-            return false;
         }
 
-        // Vuelve a mostrar todos los usuarios de ejemplo // 
+        // Mostrar todos los usuarios
         function mostrarUsuarios() {
-            const filas =
-                document.querySelectorAll("#tablaUsuarios tbody tr");
-
-            filas.forEach(function (fila) {
-                fila.hidden = false;
-            });
-
-            document.getElementById("criterioBusqueda").value = "";
-            document.getElementById("valorBusqueda").value = "";
+            Array.from(tabla.tBodies[0].rows).forEach(fila => fila.hidden = false);
+            $("criterioBusqueda").value = "";
+            $("valorBusqueda").value = "";
         }
 
-        // Solo solicita confirmación, no elimina registros // 
-        function eliminarUsuario(boton) {
+        // Eliminar usuario (pendiente de Supabase)
+        async function eliminarUsuario(boton) {
             const fila = boton.closest("tr");
             const nombre = fila.cells[0].textContent.trim();
 
-            const confirmar = confirm(
-                "¿Está seguro de que desea eliminar al usuario " +
-                nombre + "?"
-            );
+            const resultado = await Swal.fire({
+                title: "¿Está seguro?",
+                text: `¿Desea eliminar a ${nombre}?`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sí, continuar",
+                cancelButtonText: "Cancelar"
+            });
 
-            if (confirmar) {
-                alert(
-                    "La eliminación todavía no está habilitada. " +
-                    "Se implementará al conectar Supabase."
-                );
+            if (resultado.isConfirmed) {
+                await Swal.fire("Función pendiente", "La eliminación se implementará al conectar Supabase.", "info");
             }
         }
     </script>
 
 </body>
- <footer>
-        <p>&reg; 2026 U Parking - Proyecto curso II-51</p>
-    </footer>
-
 </html>
