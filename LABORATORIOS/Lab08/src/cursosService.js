@@ -13,13 +13,13 @@ import { supabase } from "./supabaseClient";
 
   Propósito:
   Centralizar todas las operaciones de base de datos
-  relacionadas con la tabla "cursos".
+  relacionadas con la tabla "cursoss".
 
   ¿Por qué es importante?
   - Evita mezclar lógica de base de datos con la UI (React)
   - Hace el código más ordenado y reutilizable
   - Permite replicar fácilmente para otras tablas
-    (curso, profesores, productos, etc.)
+    (cursos, profesores, productos, etc.)
 */
 
 /*
@@ -28,14 +28,14 @@ import { supabase } from "./supabaseClient";
   ------------------------------------------------------------
   Se define como constante para no repetir texto en todo el código
 */
-const TABLA_NOMBRE = "cursos";
+const TABLA_NOMBRE = "cursoss";
 const COLUMNAS_MOSTRAR = "id, nombre, apellido, correo, carrera, fechaNac";
 
 /*
   ------------------------------------------------------------
   mapCursoPayload
   ------------------------------------------------------------
-  Esta función recibe un objeto curso y devuelve
+  Esta función recibe un objeto cursos y devuelve
   solo los campos necesarios para la base de datos.
 
   ¿Para qué sirve?
@@ -43,20 +43,20 @@ const COLUMNAS_MOSTRAR = "id, nombre, apellido, correo, carrera, fechaNac";
   - Limpiar valores (trim)
   - Estandarizar inserts y updates
 */
-const mapCursoPayload = (curso) => ({
-  nombre: curso.nombre?.trim() || "",
-  apellido: curso.apellido?.trim() || "",
-  correo: curso.correo?.trim() || "",
-  carrera: curso.carrera?.trim() || "",
-  fechaNac: curso.fechaNac || null,
+const mapCursoPayload = (cursos) => ({
+  nombre: cursos.nombre?.trim() || "",
+  apellido: cursos.apellido?.trim() || "",
+  correo: cursos.correo?.trim() || "",
+  carrera: cursos.carrera?.trim() || "",
+  fechaNac: cursos.fechaNac || null,
 });
 
 
 /*
   ------------------------------------------------------------
-  Obtener cursos
+  Obtener cursoss
   ------------------------------------------------------------
-  Permite obtener todos los cursos.
+  Permite obtener todos los cursoss.
 
   Parámetro opcional:
   - search: texto para filtrar por nombre o apellido
@@ -78,8 +78,8 @@ export const obtenerCursos = async (search = "") => {
   const { data, error } = await query;
 
   if (error) {
-    console.error("Error al cargar cursos:", error);
-    throw new Error("No se pudieron cargar los cursos");
+    console.error("Error al cargar cursoss:", error);
+    throw new Error("No se pudieron cargar los cursoss");
   }
 
   return data;
@@ -87,7 +87,7 @@ export const obtenerCursos = async (search = "") => {
 
 /*
   ------------------------------------------------------------
-  Obtener curso por ID
+  Obtener cursos por ID
   ------------------------------------------------------------
   Útil para:
   - Editar
@@ -101,8 +101,8 @@ export const obtenerCursoPorId = async (id) => {
     .single();
 
   if (error) {
-    console.error("Error al obtener curso:", error);
-    throw new Error("No se pudo obtener el curso");
+    console.error("Error al obtener cursos:", error);
+    throw new Error("No se pudo obtener el cursos");
   }
 
   return data;
@@ -110,12 +110,12 @@ export const obtenerCursoPorId = async (id) => {
 
 /*
   ------------------------------------------------------------
-  Crear curso
+  Crear cursos
   ------------------------------------------------------------
   Inserta un nuevo registro en la base de datos
 */
-export const crearCurso = async (curso) => {
-  const payload = mapCursoPayload(curso);
+export const crearCurso = async (cursos) => {
+  const payload = mapCursoPayload(cursos);
 
   const { data, error } = await supabase
     .from(TABLA_NOMBRE)
@@ -124,8 +124,8 @@ export const crearCurso = async (curso) => {
     .single();
 
   if (error) {
-    console.error("Error al crear curso:", error);
-    throw new Error("No se pudo crear el curso");
+    console.error("Error al crear cursos:", error);
+    throw new Error("No se pudo crear el cursos");
   }
 
   return data;
@@ -133,12 +133,12 @@ export const crearCurso = async (curso) => {
 
 /*
   ------------------------------------------------------------
-  Actualizar curso
+  Actualizar cursos
   ------------------------------------------------------------
   Actualiza un registro existente
 */
-export const actualizarCurso = async (id, curso) => {
-  const payload = mapCursoPayload(curso);
+export const actualizarCurso = async (id, cursos) => {
+  const payload = mapCursoPayload(cursos);
 
   const { data, error } = await supabase
     .from(TABLA_NOMBRE)
@@ -148,8 +148,8 @@ export const actualizarCurso = async (id, curso) => {
     .single();
 
   if (error) {
-    console.error("Error al actualizar curso:", error);
-    throw new Error("No se pudo actualizar el curso");
+    console.error("Error al actualizar cursos:", error);
+    throw new Error("No se pudo actualizar el cursos");
   }
 
   return data;
@@ -157,7 +157,7 @@ export const actualizarCurso = async (id, curso) => {
 
 /*
   ------------------------------------------------------------
-  Eliminar curso
+  Eliminar cursos
   ------------------------------------------------------------
   Elimina un registro por ID
 */
@@ -168,8 +168,8 @@ export const eliminarCurso = async (id) => {
     .eq("id", id);
 
   if (error) {
-    console.error("Error al eliminar curso:", error);
-    throw new Error("No se pudo eliminar el curso");
+    console.error("Error al eliminar cursos:", error);
+    throw new Error("No se pudo eliminar el cursos");
   }
 
   return true;
@@ -177,7 +177,7 @@ export const eliminarCurso = async (id) => {
 
 /*
   ------------------------------------------------------------
-  Guardar curso (create o update)
+  Guardar cursos (create o update)
   ------------------------------------------------------------
   Esta función decide automáticamente si:
   - Crear (si no tiene id)
@@ -185,12 +185,12 @@ export const eliminarCurso = async (id) => {
 
   Esto simplifica mucho el código en React
 */
-export const guardarCurso = async (curso) => {
-  if (curso.id) {
-    return await actualizarCurso(curso.id, curso);
+export const guardarCurso = async (cursos) => {
+  if (cursos.id) {
+    return await actualizarCurso(cursos.id, cursos);
   }
 
-  return await crearCurso(curso);
+  return await crearCurso(cursos);
 };
 
 /*
@@ -198,10 +198,10 @@ export const guardarCurso = async (curso) => {
   ¿Cómo reutilizar este archivo?
   ============================================================
 
-  Para otra tabla (ejemplo: curso):
+  Para otra tabla (ejemplo: cursos):
 
   1. Cambiar TABLE_NAME:
-     const TABLE_NAME = "curso";
+     const TABLE_NAME = "cursos";
 
   2. Cambiar map:
      const mapCoursePayload = (course) => ({
