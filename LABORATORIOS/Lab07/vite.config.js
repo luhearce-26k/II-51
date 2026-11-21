@@ -4,5 +4,5 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: 'II-51/LABORATORIOS/Lab07/dist/',
+  base: '/II-51/LABORATORIOS/Lab07/dist/',
 })
